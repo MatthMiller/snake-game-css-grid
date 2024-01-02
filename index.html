@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" type="image/png" href="./sprites/snake-head.png" />
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Snake Game</title>
+</head>
+
+<body>
+  <div class="g-wrapper">
+    <div class="g-container">
+      <div class="top-info">
+        <p class="score-title">Score:</p>
+        <p class="score" id="js-score">00000</p>
+      </div>
+      <div class="board-container">
+        <div id="js-board" class="board">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./js/Game.js"></script>
+  <script type="module" src="./libs/hammer.min.js"></script>
+</body>
+
+</html>
