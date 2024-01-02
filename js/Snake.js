@@ -138,15 +138,15 @@ class Snake {
   }
 
   handleKeyboardPress({ keyCode }) {
-    if (keyCode == '38') {
-      if (this.lastDirection === 'down') return;
-      this.actualDirection = 'up';
-      this.changeDirectionClassForHead('up');
-    }
     if (keyCode == '40') {
       if (this.lastDirection === 'up') return;
       this.actualDirection = 'down';
       this.changeDirectionClassForHead('down');
+    }
+    if (keyCode == '38') {
+      if (this.lastDirection === 'down') return;
+      this.actualDirection = 'up';
+      this.changeDirectionClassForHead('up');
     }
     if (keyCode == '37') {
       if (this.lastDirection === 'right') return;
@@ -199,6 +199,8 @@ class Snake {
     const mc = new Hammer(document.body);
 
     console.log(mc);
+
+    mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
 
     mc.on('panleft panright panup pandown', (event) => {
       this.handleTouchGestures(event.type);
