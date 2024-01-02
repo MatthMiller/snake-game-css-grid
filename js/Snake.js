@@ -219,6 +219,8 @@ class Snake {
     mc.on('panleft panright panup pandown', (event) => {
       this.handleTouchGestures(event.type);
     });
+
+    this.addNewTailNextTick = true;
   }
 }
 
