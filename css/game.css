@@ -3,6 +3,7 @@
     /* height: 100%; */
     /* display: grid; */
     /* place-items: center; */
+    margin-bottom: 40px;
 }
 
 .top-info {
@@ -41,10 +42,18 @@
     /* border: 1px solid #121212; */
     /* } */
     
-    .item {
+.item {
     background-image: url('../sprites/mushroom.png');
     background-position: center;
     background-size: cover;
+}
+
+.item-1 {
+    background-image: url('../sprites/mushroom.png');
+}
+
+.item-2 {
+    background-image: url('../sprites/chick.png');
 }
 
 .snake-tail {

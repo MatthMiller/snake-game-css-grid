@@ -5,6 +5,7 @@ class Snake {
   actualDirection = 'up';
   isGameOver = false;
   addNewTailNextTick = false;
+  score = 0;
 
   constructor() {
     this.init();
@@ -47,6 +48,8 @@ class Snake {
     if (this.addNewTailNextTick) {
       this.addNewTailNextTick = false;
     }
+
+    this.updateScore();
   }
 
   findTileWithSnakeElement(position) {
@@ -65,6 +68,11 @@ class Snake {
   datasetPositionToObject(datasetString) {
     const [x, y] = datasetString.split(' ').map(Number);
     return { x, y };
+  }
+
+  updateScore() {
+    const scoreElement = document.querySelector('#js-score');
+    scoreElement.innerText = this.putZeroAtLeft(this.score);
   }
 
   setNextSnakePositions(direction) {
@@ -106,6 +114,7 @@ class Snake {
 
     if (actualTile.classList.contains('item')) {
       actualTile.classList.remove('item');
+      this.score += 125;
 
       this.addNewTailNextTick = true;
     }
@@ -192,13 +201,18 @@ class Snake {
     document.body.classList.add('direction-' + direction);
   }
 
+  putZeroAtLeft = (n) => {
+    return String(n).length !== 5
+      ? '0'.repeat(5 - String(n).length) + `${n}`
+      : n;
+  };
+
   init() {
+    console.log(this.putZeroAtLeft(50000));
     this.setRandomInitialPosition();
     window.addEventListener('keydown', this.handleKeyboardPress.bind(this));
 
     const mc = new Hammer(document.body);
-
-    console.log(mc);
 
     mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
 

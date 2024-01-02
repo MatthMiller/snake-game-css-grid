@@ -12,6 +12,9 @@ class ItemCreator {
 
     const randomTile = this.getRandomTile();
     randomTile.classList.add('item');
+    randomTile.classList.add(
+      'item-' + String(Math.floor(Math.random() * (2 - 1 + 1) + 1))
+    );
   }
 
   getRandomTile() {
